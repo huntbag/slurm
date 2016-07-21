@@ -2,3 +2,5 @@
 1) Path of opac Makefile set in configure.ac
 2) init and fini functions for loading/unloading opac plugin have been called from /src/slurmd/slurmd/slurmd.c
 3) Appropriate changes required to add a plugin in plugin/power has been made
+
+Note: Make sure ipmitool command works on the nodes.
