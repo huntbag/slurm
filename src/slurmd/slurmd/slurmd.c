@@ -97,6 +97,9 @@
 #include "src/common/xstring.h"
 #include "src/common/xsignal.h"
 
+/*opac*/
+#include "src/common/power.h"
+
 #include "src/slurmd/common/core_spec_plugin.h"
 #include "src/slurmd/slurmd/get_mach_stat.h"
 #include "src/slurmd/common/job_container_plugin.h"
@@ -343,6 +346,10 @@ main (int argc, char *argv[])
 		fatal( "failed to initialize node_features plugin");	
 	if (conf->cleanstart && switch_g_clear_node_state())
 		fatal("Unable to clear interconnect state.");
+	/* opac */
+        if (power_g_init() != SLURM_SUCCESS )
+                        fatal( "failed to initialize power management plugin");
+
 	switch_g_slurmd_init();
 	file_bcast_init();
 
@@ -1724,7 +1731,8 @@ _slurmd_fini(void)
 	acct_gather_conf_destroy();
 	fini_system_cgroup();
 	route_fini();
-
+	/* opac */
+	power_g_fini();
 	return SLURM_SUCCESS;
 }
 

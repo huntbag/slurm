@@ -581,6 +581,7 @@ AC_CONFIG_FILES([Makefile
 		 src/plugins/power/common/Makefile
 		 src/plugins/power/cray/Makefile
 		 src/plugins/power/none/Makefile
+		 src/plugins/power/opac/Makefile
 		 src/plugins/preempt/Makefile
 		 src/plugins/preempt/job_prio/Makefile
 		 src/plugins/preempt/none/Makefile
